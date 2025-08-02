@@ -3,9 +3,9 @@ import time
 
 # --- GPIO Pin Definitions (BCM numbering) ---
 # BCM GPIO 4 is Physical Pin 7
-BUZZER_PIN = 4
+BUZZER_PIN = 17
 # BCM GPIO 18 is Physical Pin 12
-LED_PIN = 18 # Changed from 22 to 18 as requested
+LED_PIN = 18
 
 def setup_gpio():
     """
@@ -14,8 +14,10 @@ def setup_gpio():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(BUZZER_PIN, GPIO.OUT)
     GPIO.setup(LED_PIN, GPIO.OUT)
+    GPIO.setwarnings(False) # Disable warnings to avoid messages about channels already in use
     print("GPIO setup complete.")
 
+# For a PASSIVE buzzer, we need PWM to generate a tone.
 def play_tone(frequency, duration):
     """
     Plays a tone on the passive buzzer using PWM.
@@ -37,6 +39,7 @@ def play_tone(frequency, duration):
         if buzzer_pwm:
             buzzer_pwm.stop()  # Stop the PWM
         print("Tone finished.")
+
 
 def led_on():
     """
@@ -66,7 +69,7 @@ if __name__ == '__main__':
         print("\nStarting Buzzer and LED Test. Press Ctrl+C to exit.")
 
         while True:
-            # --- Buzzer sequence ---
+            # --- Buzzer sequence (for Passive Buzzer) ---
             print("\nPlaying buzzer tone (GPIO 4)...")
             play_tone(440, 0.5) # Play A4 note for 0.5 seconds
             time.sleep(0.2)    # Short pause
@@ -74,7 +77,7 @@ if __name__ == '__main__':
             time.sleep(0.5)    # Pause before repeating
 
             # --- LED sequence ---
-            print("Illuminating LED (GPIO 18)...") # Updated print statement
+            print("Illuminating LED (GPIO 18)...")
             led_on()
             time.sleep(1) # LED on for 1 second
             led_off()
