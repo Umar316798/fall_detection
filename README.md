@@ -1,12 +1,12 @@
-#Fall Detection and Alert System
+# Fall Detection and Alert System
 
 This is a self-contained, low-cost fall detection system built on a Raspberry Pi. It uses computer vision to autonomously monitor for falls and triggers multi-modal alerts, providing an effective solution for at-home safety monitoring.
 
-#💡 Project Motivation
+# 💡 Project Motivation
 
 This project was developed to address the significant risk of falls faced by individuals with neurological disorders such as Parkinson's, Alzheimer's, and multiple sclerosis. A fall can have severe consequences for these individuals. The goal was to create a non-invasive, reliable system that can provide a timely alert to caregivers without the need for wearable devices, offering peace of mind and enhancing patient safety.
 
-#✨ Features
+# ✨ Features
 
 Real-Time Monitoring: Continuously monitors a live camera feed for falls.
 
@@ -18,7 +18,7 @@ Automated Image Capture: Saves an image of the event to a local directory for in
 
 Cooldown Mechanism: Prevents repeated false alarms by entering a cooldown period after a fall is detected.
 
-#🛠️ Technologies Used
+# 🛠️ Technologies Used
 
 ##Hardware:
 
@@ -42,7 +42,7 @@ RPi.GPIO: A library for controlling the GPIO pins on the Raspberry Pi.
 
 Picamera2: The official library for interfacing with the Raspberry Pi camera module.
 
-🚀 Getting Started
+# 🚀 Getting Started
 To set up the system, you will need to wire the components and install the necessary software libraries.
 
 Hardware Setup: Follow the wiring diagrams to connect the buzzer and LED to the appropriate GPIO pins on your Raspberry Pi.
